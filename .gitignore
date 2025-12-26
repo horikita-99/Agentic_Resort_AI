@@ -1,0 +1,34 @@
+# ---------- Environment variables ----------
+.env
+
+# ---------- Python ----------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# ---------- Virtual environments ----------
+venv/
+.env/
+.venv/
+env/
+
+# ---------- Streamlit ----------
+.streamlit/
+*.log
+
+# ---------- OS ----------
+.DS_Store
+Thumbs.db
+
+# ---------- IDE ----------
+.vscode/
+.idea/
+
+# ---------- Database ----------
+resort.db
+
+# ---------- Temporary / cache ----------
+*.tmp
+*.cache
