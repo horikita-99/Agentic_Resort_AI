@@ -220,4 +220,4 @@ Resort Operations Dashboard
 ![Dashboard Home](screenshots/Dashboard_home.png)
 
 Restaurant Order Workflow
-![Restaurant Orders](screenshots/restaurant_order.png)
+![Restaurant Orders](screenshots/restaurant_order.jpg)
