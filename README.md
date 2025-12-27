@@ -196,7 +196,7 @@ Provides a simple operational view for staff.
 
 -   Streamlit (Dashboard)
 
-  Pandas (Excel data ingestion)
+-   Pandas (Excel data ingestion)
   
 ## ▶️ How to Run
 ###
