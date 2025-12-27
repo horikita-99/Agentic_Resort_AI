@@ -200,18 +200,26 @@ Provides a simple operational view for staff.
   
 ##  How to Run
 ###
-1️. Install dependencies
+**1️. Install dependencies**
+```
 pip install -r requirements.txt
+ ```
 
-2️. Set OpenAI API Key
+**2️. Set OpenAI API Key**
+``` text
 Create a .env file:
 OPENAI_API_KEY=your_api_key_here
+```
 
-3️. Run the Chat Assistant
+**3️. Run the Chat Assistant**
+```
 python -m backend.main
+```
 
-4️. Run the Dashboard (Optional)
+**4️. Run the Dashboard**
+```
 streamlit run dashboard/app.py
+```
 
 
 ##  Dashboard Screenshots
