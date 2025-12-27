@@ -20,20 +20,22 @@ The system supports:
 This project demonstrates agentic AI design, LLM orchestration, and modular backend architecture.
 
 
-**System Architecture**
-🔷 High-Level Flow
+## System Architecture
+
+### High-Level Flow
 User Input
-   ↓
+↓
 Router Agent (Intent Classification)
-   ↓
-┌─────────────┬────────────────┬─────────────────┐
-│ Reception   │ Restaurant     │ Room Service    │
-│ Agent       │ Agent          │ Agent           │
-└─────────────┴────────────────┴─────────────────┘
-        ↓              ↓               ↓
-   Static / DB     Menu + Orders     Service Requests
-                       ↓
-       Operational Dashboard (Streamlit)
+↓
++--------------+------------------+------------------+
+| Reception | Restaurant | Room Service |
+| Agent | Agent | Agent |
++--------------+------------------+------------------+
+↓ ↓ ↓
+Static / DB Menu + Orders Service Requests
+↓
+Operational Dashboard (Streamlit)
+                   
 
 🔷 **Core Components**
 
