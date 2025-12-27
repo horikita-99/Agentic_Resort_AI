@@ -1,15 +1,27 @@
 🔷 Agentic Resort AI Assistant
 
-###**Overview**
+**Overview**
 
-This project implements an Agentic AI-based Resort Assistant that handles guest interactions across multiple departments using LLM-powered agents, rule-based fallbacks, and a shared backend.
-The system supports restaurant ordering, room service requests, and reception queries, along with an optional operations dashboard.
+Agentic Resort AI Assistant simulates a real-world resort environment where different departments are handled by specialized AI agents.
+A central Router Agent classifies user intent and routes queries to the appropriate department agent.
 
-The design follows a modular multi-agent architecture with clear separation of responsibilities.
+The system supports:
+
+- Natural language guest interaction
+
+- Food ordering and bill calculation
+
+- Room service requests
+
+- Reception FAQs
+
+- Live operational visibility via dashboard
+
+This project demonstrates agentic AI design, LLM orchestration, and modular backend architecture.
 
 
 **System Architecture**
-###🔷 High-Level Flow
+🔷 High-Level Flow
 User Input
    ↓
 Router Agent (Intent Classification)
@@ -20,8 +32,11 @@ Router Agent (Intent Classification)
 └─────────────┴────────────────┴─────────────────┘
         ↓              ↓               ↓
    Static / DB     Menu + Orders     Service Requests
+                       ↓
+       Operational Dashboard (Streamlit)
 
-###🔷 Core Components
+🔷 **Core Components**
+
 1️⃣ Router Agent
 
 **Purpose**:
@@ -167,7 +182,7 @@ Displays:
 Purpose:
 Provides a simple operational view for staff.
 
-###🛠️ Tech Stack
+🛠️ Tech Stack
 
 -   Python 3
 
@@ -198,7 +213,7 @@ streamlit run dashboard/app.py
 
 ## 📊 Dashboard Screenshots
 
-### Resort Operations Dashboard
+Resort Operations Dashboard
 ![Dashboard Home](screenshots/Dashboard_home.png)
 
 ### Restaurant Order Workflow
