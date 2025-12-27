@@ -50,6 +50,39 @@ for item in menu_items:
         st.success(f"{item['name']} added to order")
 
 
+#---------------------------------render_bot_response---------------------------------
+def render_bot_response(response):
+    if response["type"] == "menu":
+        st.subheader(f"{response['category']} Menu")
+        for item in response["data"]:
+            st.write(f"• {item['name']} — ₹{item['price']}")
+
+    elif response["type"] == "order_add":
+        st.success(f"✅ Added **{response['data']['added']}** to your order (₹{response['data']['price']})")
+
+    elif response["type"] == "order_view":
+        st.subheader("🧾 Current Order")
+        if not response["data"]["items"]:
+            st.info("Your order is empty.")
+        else:
+            for item in response["data"]["items"]:
+                st.write(f"• {item['name']} — ₹{item['price']}")
+            st.write(f"**Total: ₹{response['data']['total']}**")
+
+    elif response["type"] == "order_confirmed":
+        st.success("🎉 Your order has been confirmed!")
+        st.write(f"**Total Bill: ₹{response['data']['total']}**")
+
+    elif response["type"] == "room_service":
+        st.success(f"🛎️ {response['service']} request received!")
+
+    elif response["type"] == "reception":
+        st.info(response["message"])
+
+    else:
+        st.write("🤖 Sorry, I didn’t understand that.")
+
+
 # ---------------- CHAT ASSISTANT ----------------
 st.divider()
 st.header("💬 Resort AI Assistant")
@@ -79,7 +112,10 @@ if st.button("Send") and user_input:
 
 # Display chat history
 for speaker, msg in st.session_state.chat_history:
-    st.write(f"**{speaker}:** {msg}")
+    if speaker == "You":
+        st.markdown(f"**You:** {msg}")
+    else:
+        render_bot_response(msg)
 
 
 
@@ -100,3 +136,4 @@ else:
 if st.button("✅ Confirm Order"):
     confirmed = confirm_order()
     st.success(f"Order confirmed! Total bill: ₹ {confirmed['total']}")
+

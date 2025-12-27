@@ -1,28 +1,45 @@
-🔷 Agentic Resort AI Assistant
+## Agentic Resort AI Assistant
 
-###**Overview**
+### Overview
 
-This project implements an Agentic AI-based Resort Assistant that handles guest interactions across multiple departments using LLM-powered agents, rule-based fallbacks, and a shared backend.
-The system supports restaurant ordering, room service requests, and reception queries, along with an optional operations dashboard.
+Agentic Resort AI Assistant simulates a real-world resort environment where different departments are handled by specialized AI agents.
+A central Router Agent classifies user intent and routes queries to the appropriate department agent.
 
-The design follows a modular multi-agent architecture with clear separation of responsibilities.
+The system supports:
+
+- Natural language guest interaction
+
+- Food ordering and bill calculation
+
+- Room service requests
+
+- Reception FAQs
+
+- Live operational visibility via dashboard
+
+This project demonstrates agentic AI design, LLM orchestration, and modular backend architecture.
 
 
-**System Architecture**
-###🔷 High-Level Flow
-User Input
-   ↓
-Router Agent (Intent Classification)
-   ↓
-┌─────────────┬────────────────┬─────────────────┐
-│ Reception   │ Restaurant     │ Room Service    │
-│ Agent       │ Agent          │ Agent           │
-└─────────────┴────────────────┴─────────────────┘
-        ↓              ↓               ↓
-   Static / DB     Menu + Orders     Service Requests
+## System Architecture
 
-###🔷 Core Components
-1️⃣ Router Agent
+### High-Level Flow
+```text
+                       User Input
+                           ↓
+          Router Agent (Intent Classification)
+                           ↓
++----------------+--------------------+--------------------+
+| Reception Agent | Restaurant Agent | Room Service Agent |
++----------------+--------------------+--------------------+
+         ↓                 ↓                   ↓
+     Static / DB     Menu + Orders      Service Requests
+                           ↓
+            Operational Dashboard (Streamlit)
+```                 
+
+## 🔷Core Components
+###
+**1️⃣ Router Agent**
 
 **Purpose**:
 Routes each user message to the appropriate department agent.
@@ -44,7 +61,7 @@ Includes keyword-based fallback for reliability
 Why:
 Prevents overloading a single agent and ensures clean responsibility separation.
 
-2️⃣ Receptionist Agent
+**2️⃣ Receptionist Agent**
 
 Handles general resort enquiries.
 
@@ -64,7 +81,7 @@ Static responses stored in config / code
 
 Mock room availability logic (acceptable per assignment)
 
-3️⃣ Restaurant Agent (LLM-Driven)
+**3️⃣ Restaurant Agent (LLM-Driven)**
 
 Handles the complete food ordering workflow.
 
@@ -82,19 +99,19 @@ Capabilities:
 
 -   Confirm order & calculate bill
 
-Key Design Choices:
+**Key Design Choices:**
 
-  Hybrid Intent Handling
+- Hybrid Intent Handling
 
   -   LLM for flexible natural language understanding
 
   -   Deterministic rule guards for critical flows (e.g., “show breakfast”)
 
-Uses SQLAlchemy to fetch menu data
+- Uses SQLAlchemy to fetch menu data
 
-Uses in-memory order store (can be replaced by DB/Redis later)
+- Uses in-memory order store (can be replaced by DB/Redis later)
 
-Order Data Structure Includes:
+**Order Data Structure Includes:**
 
 -   Ordered items
 
@@ -106,7 +123,7 @@ Order Data Structure Includes:
 
 -   Order status
 
-4️⃣ Order Memory & Tools
+**4️⃣ Order Memory & Tools**
 
 Purpose:
 Maintain state across conversation turns.
@@ -128,7 +145,7 @@ Functions:
 Note:
 Designed for easy migration to persistent storage.
 
-5️⃣ Room Service Agent
+**5️⃣ Room Service Agent**
 
 Handles service requests from guests.
 
@@ -150,7 +167,7 @@ Request Data Includes:
 
 -   Status (Pending / In Progress / Completed)
 
-6️⃣ Resort Operations Dashboard (Optional)
+**6️⃣ Resort Operations Dashboard**
 
 Built using Streamlit.
 
@@ -167,8 +184,8 @@ Displays:
 Purpose:
 Provides a simple operational view for staff.
 
-###🛠️ Tech Stack
-
+## 🛠️ Tech Stack
+###
 -   Python 3
 
 -   LangChain + OpenAI (ChatOpenAI)
@@ -179,9 +196,10 @@ Provides a simple operational view for staff.
 
 -   Streamlit (Dashboard)
 
-  Pandas (Excel data ingestion)
+-   Pandas (Excel data ingestion)
   
-▶️ How to Run
+## ▶️ How to Run
+###
 1️⃣ Install dependencies
 pip install -r requirements.txt
 
@@ -197,9 +215,9 @@ streamlit run dashboard/app.py
 
 
 ## 📊 Dashboard Screenshots
-
-### Resort Operations Dashboard
+###
+Resort Operations Dashboard
 ![Dashboard Home](screenshots/Dashboard_home.png)
 
-### Restaurant Order Workflow
+Restaurant Order Workflow
 ![Restaurant Orders](screenshots/restaurant_order.png)
