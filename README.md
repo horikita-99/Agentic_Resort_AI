@@ -37,9 +37,9 @@ This project demonstrates agentic AI design, LLM orchestration, and modular back
             Operational Dashboard (Streamlit)
 ```                 
 
-## 🔷Core Components
+## Core Components
 ###
-**1️⃣ Router Agent**
+**1️. Router Agent**
 
 **Purpose**:
 Routes each user message to the appropriate department agent.
@@ -60,8 +60,8 @@ Includes keyword-based fallback for reliability
 
 Why:
 Prevents overloading a single agent and ensures clean responsibility separation.
-
-**2️⃣ Receptionist Agent**
+##
+### **2️. Receptionist Agent**
 
 Handles general resort enquiries.
 
@@ -80,8 +80,8 @@ Implementation:
 Static responses stored in config / code
 
 Mock room availability logic (acceptable per assignment)
-
-**3️⃣ Restaurant Agent (LLM-Driven)**
+##
+### **3️. Restaurant Agent (LLM-Driven)**
 
 Handles the complete food ordering workflow.
 
@@ -122,8 +122,8 @@ Capabilities:
 -   Timestamp
 
 -   Order status
-
-**4️⃣ Order Memory & Tools**
+##
+### **4️. Order Memory & Tools**
 
 Purpose:
 Maintain state across conversation turns.
@@ -144,8 +144,8 @@ Functions:
 
 Note:
 Designed for easy migration to persistent storage.
-
-**5️⃣ Room Service Agent**
+##
+### **5️. Room Service Agent**
 
 Handles service requests from guests.
 
@@ -166,8 +166,8 @@ Request Data Includes:
 -   Timestamp
 
 -   Status (Pending / In Progress / Completed)
-
-**6️⃣ Resort Operations Dashboard**
+##
+### **6️. Resort Operations Dashboard**
 
 Built using Streamlit.
 
@@ -184,7 +184,7 @@ Displays:
 Purpose:
 Provides a simple operational view for staff.
 
-## 🛠️ Tech Stack
+##  Tech Stack
 ###
 -   Python 3
 
@@ -198,23 +198,23 @@ Provides a simple operational view for staff.
 
 -   Pandas (Excel data ingestion)
   
-## ▶️ How to Run
+##  How to Run
 ###
-1️⃣ Install dependencies
+1️. Install dependencies
 pip install -r requirements.txt
 
-2️⃣ Set OpenAI API Key
+2️. Set OpenAI API Key
 Create a .env file:
 OPENAI_API_KEY=your_api_key_here
 
-3️⃣ Run the Chat Assistant
+3️. Run the Chat Assistant
 python -m backend.main
 
-4️⃣ Run the Dashboard (Optional)
+4️. Run the Dashboard (Optional)
 streamlit run dashboard/app.py
 
 
-## 📊 Dashboard Screenshots
+##  Dashboard Screenshots
 ###
 Resort Operations Dashboard
 ![Dashboard Home](screenshots/Dashboard_home.png)
